@@ -7,11 +7,16 @@ angular.module('webtail', []).controller('webtailController', function($scope) {
 
 	var el = document.getElementById("tail");
 
+	$scope.filter = "";
 	$scope.name = "aki";
 
+	$scope.disablescroll = false;
+	$scope.disablescrollBtnText = "禁用自动滚动";
 	$scope.dirs = [
 
 	];
+
+
 	$scope.logger = [];
 	$scope.files = [
 
@@ -83,7 +88,7 @@ angular.module('webtail', []).controller('webtailController', function($scope) {
 		append = true;
 		$scope.$apply();
 
-		document.getElementById("tail").scrollTop=20000000
+		if(!$scope.disablescroll) document.getElementById("tail").scrollTop=20000000
 	});
 
 

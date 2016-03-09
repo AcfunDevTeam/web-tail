@@ -22,8 +22,10 @@
 		<select name="" id="" ng-model="file" ng-change="selectfile(f)">
 			<option value="{{f}}" ng-repeat="(i,f) in files">{{f}}</option>
 		</select>
+		<button ng-click="disablescroll=!disablescroll;disablescrollBtnText=disablescroll?'开启自动滚动':'禁用自动滚动'">{{disablescrollBtnText}}</button>
+		<input type="text" ng-model="filter">
 		<ol id="tail" class="monospace selection" style="height: 542px;">
-			<li ng-repeat="(i,l) in logger  track by $index"><pre>{{l}}</pre></li>
+			<li ng-repeat="(i,l) in logger  track by $index" class="{{filter ? (l.indexOf(filter) > 0 ?'matching': ''): ''}}"><pre>{{l}}</pre></li>
 		</ol>
 	
 
