@@ -22,7 +22,7 @@ angular.module('webtail', []).controller('webtailController', function($scope) {
 
 	];
 
-	var socket = io.connect("http://127.0.0.1:8000",{transports: ['websocket', 'polling', 'flashsocket']});
+	var socket = io.connect("http://"+location.host.split(":")[0]+":9999",{transports: ['websocket', 'polling', 'flashsocket']});
 
 	socket.on('connect', function() {
 		log('Connected');
@@ -49,6 +49,13 @@ angular.module('webtail', []).controller('webtailController', function($scope) {
 		socket.emit("request", {path: path});
 	};
 
+	$scope.selectpath = function(path){
+
+		console.log(path)
+		currentPath = path;
+		socket.emit("requestfiles", {path: path});
+	};
+
 	socket.on("files", function(data){
 
 		$scope.files = data.files;
@@ -69,6 +76,7 @@ angular.module('webtail', []).controller('webtailController', function($scope) {
 
 		currentPath = path;
 
+		$scope.path = path;
 
 		socket.emit("requestfiles", {path: path});
 

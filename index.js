@@ -29,10 +29,7 @@ app.use(mount("/", index.middleware()));
 
 var tail = require("./lib/tail");
 
-var dirs = [
-	"/Users/aki/Desktop/Lockets",
-	"/Users/aki/Desktop/lolitaserver"
-];
+var dirs = require("./config.json");
 
 
 
@@ -74,8 +71,8 @@ io.on('connection', function(socket){
 })
 
 
-server.listen(8000);
-app.listen(9000);
+server.listen(9999);
+app.listen(9998);
 
 // [
 
@@ -111,6 +108,7 @@ function readDir(logDir){
 				var filePath = path.join(logDir, file);
 				var isFile = fs.statSync(filePath).isFile();
 				
+				if(file.indexOf(".") === 0) return;
 				if(isFile) {
 				  logFiles.push(file);
 				}

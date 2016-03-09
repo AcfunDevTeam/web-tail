@@ -16,7 +16,7 @@
 	<body ng-controller="webtailController">
 		
 
-		<select name="" id="">
+		<select name="" id="" ng-model="path" ng-change="selectpath(path)">
 			<option value="{{d}}" ng-repeat="d in dirs">{{d}}</option>
 		</select>
 		<select name="" id="" ng-model="file" ng-change="selectfile(f)">
