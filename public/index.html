@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="webtail">
+	
+	<head>
+		
+		<script src="/js/angular.js"></script>
+		<script src="/js/socket.io.js"></script>
+
+		<style>
+			.logger{
+				width: 300px;
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+	<body ng-controller="webtailController">
+		
+
+		<select name="" id="">
+			<option value="{{d}}" ng-repeat="d in dirs">{{d}}</option>
+		</select>
+		<select name="" id="" ng-model="file" ng-change="selectfile(f)">
+			<option value="{{f}}" ng-repeat="(i,f) in files">{{f}}</option>
+		</select>
+
+		<ol class="logger">
+			<li ng-repeat="(i,l) in logger  track by $index">{{l}}</li>
+		</ol>
+	
+
+		<script src="/js/index.js"></script>
+	</body>
+
+</html>
