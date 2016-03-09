@@ -5,6 +5,8 @@
 angular.module('webtail', []).controller('webtailController', function($scope) {
 
 
+	var el = document.getElementById("tail");
+
 	$scope.name = "aki";
 
 	$scope.dirs = [
@@ -80,6 +82,8 @@ angular.module('webtail', []).controller('webtailController', function($scope) {
 		}
 		append = true;
 		$scope.$apply();
+
+		document.getElementById("tail").scrollTop=20000000
 	});
 
 
