@@ -45,8 +45,13 @@ angular.module('webtail', []).controller('webtailController', function($scope) {
 	socket.on("files", function(data){
 
 		$scope.files = data.files;
+		console.log(data.files)
 
 		$scope.$apply();
+
+		console.log(currentPath + "/" + data.files[0])
+		socket.emit("request", {path: currentPath + "/" + data.files[0]});
+
 	});
 	socket.on("dirs", function(data){
 

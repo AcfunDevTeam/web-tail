@@ -5,7 +5,7 @@
 		
 		<script src="/js/angular.js"></script>
 		<script src="/js/socket.io.js"></script>
-
+		<link rel="stylesheet" href="/css/app.css">
 		<style>
 			.logger{
 				width: 300px;
@@ -22,9 +22,8 @@
 		<select name="" id="" ng-model="file" ng-change="selectfile(f)">
 			<option value="{{f}}" ng-repeat="(i,f) in files">{{f}}</option>
 		</select>
-
-		<ol class="logger">
-			<li ng-repeat="(i,l) in logger  track by $index">{{l}}</li>
+		<ol id="tail" class="monospace selection" style="height: 542px;">
+			<li ng-repeat="(i,l) in logger  track by $index"><pre>{{l}}</pre></li>
 		</ol>
 	
 
