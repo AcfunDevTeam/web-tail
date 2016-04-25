@@ -14,5 +14,6 @@
 
 ## 安装启动
 
-   $ npm install
-   $ npm start
+
+	$ npm install
+	$ npm start
